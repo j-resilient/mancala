@@ -3,6 +3,7 @@ class Board
 
   def initialize(name1, name2)
     @cups = place_stones
+    @name1, @name2 = name1, name2
   end
 
   def place_stones
@@ -13,6 +14,8 @@ class Board
   end
 
   def valid_move?(start_pos)
+    raise "Invalid starting cup" unless start_pos.between?(0,13)
+    raise "Starting cup is empty" if cups[start_pos].empty?
   end
 
   def make_move(start_pos, current_player_name)
