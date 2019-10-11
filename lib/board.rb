@@ -1,7 +1,14 @@
 class Board
   attr_accessor :cups
 
+  def fill_cups
+    cups = Array.new(14) { Array.new(4, :stone) }
+    cups[6], cups[13] = [], []
+    cups
+  end
+
   def initialize(name1, name2)
+    @cups = fill_cups
   end
 
   def place_stones
